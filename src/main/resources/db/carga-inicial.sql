@@ -15,3 +15,5 @@ INSERT INTO usuario (nome, login, email, senha, data_de_nascimento, data_de_cria
 INSERT INTO usuario (nome, login, email, senha, data_de_nascimento, data_de_criacao) VALUES ("Manuella", "manuella", "manu@yahoo.com.br", "4321567", "1950-07-25", "2023-02-16");
 
 INSERT INTO usuario (nome, login, email, senha, data_de_nascimento, data_de_criacao) VALUES ("Manuella", "manu", "manu@yahoo.com.br", "4321567", "2023-02-16", "2023-02-16");
+
+INSERT INTO usuario (nome, login, email, senha, data_de_nascimento, data_de_criacao) VALUES ("ligia", "ligia", "ligia@hotmail.com", "123456", "1987-02-25", "2023-02-16");

@@ -4,9 +4,8 @@ import com.stefanini.dto.UsuarioDTO;
 import com.stefanini.service.UsuarioService;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.validation.Valid;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
@@ -38,5 +37,27 @@ public class UsuarioResource {
     @Path ("/inicial/{inicial}")
     public Response listarInicialDoNome(@PathParam("inicial") String inicial){
         return Response.status(Response.Status.OK).entity(usuarioService.listarInicialDoNome(inicial)).build();
+    }
+
+    @GET
+    @Path("/{idUsuario}")
+    public Response pegarUsuarioPorID(@PathParam("idUsuario") Long idUsuario) {
+        // UsuarioDTO usuarioDTO = usuarioService.pegaUsuarioPorID(idUsuario);
+        return Response.status(Response.Status.OK).entity(usuarioService.pegaUsuarioPorID(idUsuario)).build();
+    }
+
+    @POST
+    public Response criarUsuario(UsuarioDTO usuarioDTO) {
+        return Response.status(Response.Status.CREATED).entity(usuarioService.criarUsuario(usuarioDTO)).build();
+    }
+    @PUT
+    public Response alterarUsuario(@Valid UsuarioDTO usuarioDTO) {
+        return Response.status(Response.Status.OK).entity(usuarioService.alterarUsuario(usuarioDTO)).build();
+    }
+    @DELETE
+    @Path("/{idUsuario}")
+    public Response excluirUsuario(@PathParam("idUsuario") Long idUsuario){
+        usuarioService.excluirUsuario(idUsuario);
+        return Response.status(Response.Status.ACCEPTED).build();
     }
 }
